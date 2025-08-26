@@ -12,11 +12,11 @@ function RecentTools() {
         { picto: <Briefcase size={24} className="text-white" />, name: "SalesForce", department: "sales", users: 45, monthlyCost: "€4.500", status: "active" },
     ];
     return (
-        <div className="card bg-dark text-white mt-4">
+        <div className="card text-white mt-4 rounded" style={{ backgroundColor: '#0A0A0A', border: "1px solid #191919" }}>
             <h3>Recent tools</h3>
-            <div className="card-body p-0">
+            <div className="card-body">
                 <div className="table-responsive">
-                    <table className="table table-dark table-hover align-middle">
+                    <table className="table table-dark table-hover align-middle" style={{ backgroundColor: '#0A0A0A' }}>
                         <thead>
                             <tr>
                                 <td>Tool</td>

@@ -3,8 +3,8 @@ import { Palette } from "lucide-react";
 function Kpis() {
     return (
         <ul className="row list-unstyled g-3">
-            <li className="col-md-3">
-                <div className="card bg-dark text-white p-3 h-100">
+            <li className="col-md-3 rounded" style={{ border: "1px solid #191919" }}>
+                <div className="card text-white p-3 h-100" style={{ backgroundColor: '#0A0A0A' }}>
                     <div className="d-flex justify-content-between align-items-start">
                         <h4 className="h6 text-secondary mb-0">Monthly Budget</h4>
                         <i className="bi bi-graph-up text-success"></i>
@@ -14,8 +14,8 @@ function Kpis() {
                 </div>
             </li>
 
-            <li className="col-md-3">
-                <div className="card bg-dark text-white p-3 h-100">
+            <li className="col-md-3 rounded mb-3" style={{ border: "1px solid #191919" }}>
+                <div className="card text-white p-3 h-100" style={{ backgroundColor: '#0A0A0A' }}>
                     <div className="d-flex justify-content-between align-items-start">
                         <h4 className="h6 text-secondary mb-0">Active Tools</h4>
                         <i className="bi bi-tools text-primary"></i>
@@ -24,8 +24,8 @@ function Kpis() {
                     <p className="text-success mb-0">+8</p>
                 </div>
             </li>
-            <li className="col-md-3">
-                <div className="card bg-dark text-white p-3 h-100">
+            <li className="col-md-3 rounded mb-3" style={{ border: "1px solid #191919" }}>
+                <div className="card text-white p-3 h-100" style={{ backgroundColor: '#0A0A0A' }}>
                     <div className="d-flex justify-content-between align-items-start">
                         <h4 className="h6 text-secondary mb-0">Departments</h4>
                         <i className="bi bi-graph-up text-success"></i>
@@ -34,8 +34,8 @@ function Kpis() {
                     <p className="text-success mb-0">+2</p>
                 </div>
             </li>
-            <li className="col-md-3">
-                <div className="card bg-dark text-white p-3 h-100">
+            <li className="col-md-3 rounded mb-3" style={{ border: "1px solid #191919" }}>
+                <div className="card text-white p-3 h-100" style={{ backgroundColor: '#0A0A0A' }}>
                     <div className="d-flex justify-content-between align-items-start">
                         <h4 className="h6 text-secondary mb-0">Cost/User</h4>
                         <i className="bi bi-graph-up text-success"></i>

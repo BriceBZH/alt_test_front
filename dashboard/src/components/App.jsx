@@ -13,7 +13,7 @@ function App() {
     <>
       <div className="d-flex flex-column min-vh-100">
         <Header />
-        <main className="p-3 bg-dark text-white">
+        <main className="p-3 text-white" style={{ backgroundColor: '#0A0A0A' }}>
           <h1>Internal Tools Dashboard</h1>
           <p>Monitor and manage your organisation's software tools and expenses</p>
           <Kpis />
