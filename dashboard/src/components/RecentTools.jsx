@@ -19,11 +19,11 @@ function RecentTools() {
                     <table className="table table-dark table-hover align-middle">
                         <thead>
                             <tr className="table table-dark table-hover align-middle">
-                                <td style={{ backgroundColor: '#0A0A0A' }}>Tool</td>
-                                <td style={{ backgroundColor: '#0A0A0A' }}>Department</td>
-                                <td style={{ backgroundColor: '#0A0A0A' }}>Users</td>
-                                <td style={{ backgroundColor: '#0A0A0A' }}>Monthly Cost</td>
-                                <td style={{ backgroundColor: '#0A0A0A' }}>Status</td>
+                                <th style={{ backgroundColor: '#0A0A0A' }}>Tool</th>
+                                <th style={{ backgroundColor: '#0A0A0A' }}>Department</th>
+                                <th style={{ backgroundColor: '#0A0A0A' }}>Users</th>
+                                <th style={{ backgroundColor: '#0A0A0A' }}>Monthly Cost</th>
+                                <th style={{ backgroundColor: '#0A0A0A' }}>Status</th>
                             </tr>
                         </thead>
                         <tbody>
