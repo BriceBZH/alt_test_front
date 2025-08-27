@@ -14,10 +14,10 @@ function Navbar() {
                     <Link className="nav-link text-white" to="/Tools">Tools</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link text-white" to="/">Analytics</Link>
+                    <Link className="nav-link text-white" to="/Analytics">Analytics</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link text-white" to="/">Settings</Link>
+                    <Link className="nav-link text-white" to="/Settings">Settings</Link>
                 </li>
             </ul>
         </div>

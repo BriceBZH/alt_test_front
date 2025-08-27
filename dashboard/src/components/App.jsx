@@ -8,6 +8,8 @@ import Kpis from './Kpis'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Tools from "../pages/Tools";
 import Dashboard from "../pages/Dashboard";
+import Analytics from "../pages/Analytics";
+import Settings from "../pages/Settings";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +23,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/Tools" element={<Tools />} />
+              <Route path="/Analytics" element={<Analytics />} />
+              <Route path="/Settings" element={<Settings />} />
             </Routes>
           </main>
         </Router>
