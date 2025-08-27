@@ -13,27 +13,27 @@ function RecentTools() {
     ];
     return (
         <div className="card text-white mt-4 rounded" style={{ backgroundColor: '#0A0A0A', border: "1px solid #191919" }}>
-            <h3>Recent tools</h3>
             <div className="card-body">
+                <h3>Recent tools</h3>
                 <div className="table-responsive">
-                    <table className="table table-dark table-hover align-middle" style={{ backgroundColor: '#0A0A0A' }}>
+                    <table className="table table-dark table-hover align-middle">
                         <thead>
-                            <tr>
-                                <td>Tool</td>
-                                <td>Department</td>
-                                <td>Users</td>
-                                <td>Monthly Cost</td>
-                                <td>Status</td>
+                            <tr className="table table-dark table-hover align-middle">
+                                <td style={{ backgroundColor: '#0A0A0A' }}>Tool</td>
+                                <td style={{ backgroundColor: '#0A0A0A' }}>Department</td>
+                                <td style={{ backgroundColor: '#0A0A0A' }}>Users</td>
+                                <td style={{ backgroundColor: '#0A0A0A' }}>Monthly Cost</td>
+                                <td style={{ backgroundColor: '#0A0A0A' }}>Status</td>
                             </tr>
                         </thead>
                         <tbody>
                             {toolsData.map((tool, index) => (
                                 <tr key={index}>
-                                    <td>{tool.picto} {tool.name}</td>
-                                    <td>{tool.department}</td>
-                                    <td>{tool.users}</td>
-                                    <td>{tool.monthlyCost}</td>
-                                    <td>{tool.status}</td>
+                                    <td style={{ backgroundColor: '#0A0A0A' }}>{tool.picto} {tool.name}</td>
+                                    <td style={{ backgroundColor: '#0A0A0A' }}>{tool.department}</td>
+                                    <td style={{ backgroundColor: '#0A0A0A' }}>{tool.users}</td>
+                                    <td style={{ backgroundColor: '#0A0A0A' }}>{tool.monthlyCost}</td>
+                                    <td style={{ backgroundColor: '#0A0A0A' }}>{tool.status}</td>
                                 </tr>
                             ))}
                         </tbody>
