@@ -5,6 +5,9 @@ import viteLogo from '/vite.svg'
 import '../styles/App.css'
 import RecentTools from './RecentTools'
 import Kpis from './Kpis'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Tools from "../pages/Tools";
+import Dashboard from "../pages/Dashboard";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,14 +15,15 @@ function App() {
   return (
     <>
       <div className="d-flex flex-column min-vh-100">
-        <Header />
-        <main className="p-3 text-white" style={{ backgroundColor: '#0A0A0A' }}>
-          <h1>Internal Tools Dashboard</h1>
-          <p>Monitor and manage your organisation's software tools and expenses</p>
-          <Kpis />
-          <RecentTools />
-          {/* Autres sections / contenu */}
-        </main>
+        <Router>
+          <Header />
+          <main className="p-3 text-white" style={{ backgroundColor: '#0A0A0A' }}>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/Tools" element={<Tools />} />
+            </Routes>
+          </main>
+        </Router>
       </div>
       {/* <h1>Vite + React</h1>
       <div className="card">

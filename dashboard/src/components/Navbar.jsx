@@ -1,4 +1,6 @@
 import Logo from '../assets/logo.png';
+import { Link } from "react-router-dom";
+
 
 function Navbar() {
     return (
@@ -6,16 +8,16 @@ function Navbar() {
             <img src={Logo} alt="Logo" />
             <ul className="nav">
                 <li className="nav-item">
-                    <a className="nav-link active text-white" href="#">Dashboard</a>
+                    <Link className="nav-link active text-white" to="/">Dashboard</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link text-white" href="#">Tools</a>
+                    <Link className="nav-link text-white" to="/Tools">Tools</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link text-white" href="#">Analytics</a>
+                    <Link className="nav-link text-white" to="/">Analytics</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link text-white" href="#">Settings</a>
+                    <Link className="nav-link text-white" to="/">Settings</Link>
                 </li>
             </ul>
         </div>
