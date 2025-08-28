@@ -24,6 +24,7 @@ function RecentTools() {
                                 <th style={{ backgroundColor: '#0A0A0A' }}>Users</th>
                                 <th style={{ backgroundColor: '#0A0A0A' }}>Monthly Cost</th>
                                 <th style={{ backgroundColor: '#0A0A0A' }}>Status</th>
+                                <th style={{ backgroundColor: '#0A0A0A' }}>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,7 +34,23 @@ function RecentTools() {
                                     <td style={{ backgroundColor: '#0A0A0A' }}>{tool.department}</td>
                                     <td style={{ backgroundColor: '#0A0A0A' }}>{tool.users}</td>
                                     <td style={{ backgroundColor: '#0A0A0A' }}>{tool.monthlyCost}</td>
-                                    <td style={{ backgroundColor: '#0A0A0A' }}>{tool.status}</td>
+                                    <td style={{ backgroundColor: '#0A0A0A' }}>
+                                        <span className={`badge ${tool.status === "active" ? "bg-success" : tool.status === "Expiring" ? "bg-warning text-dark" : "bg-danger" }`} >
+                                            {tool.status}
+                                        </span>
+                                    </td>
+                                    <td style={{ backgroundColor: '#0A0A0A' }}>
+                                        <div className="dropdown">
+                                            <button className="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                Actions
+                                            </button>
+                                            <ul className="dropdown-menu dropdown-menu-end">
+                                                <li><a className="dropdown-item" href="#">View</a></li>
+                                                <li><a className="dropdown-item" href="#">Edit</a></li>
+                                                <li><a className="dropdown-item" href="#">Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
