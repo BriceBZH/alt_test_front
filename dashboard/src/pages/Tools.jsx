@@ -42,7 +42,7 @@ function Tools() {
             created_at: new Date().toISOString(),
             updated_at: new Date().toISOString()
         };
-        fetch("http://localhost:3001/tools", {
+        fetch("https://tt-jsonserver-01.alt-tools.tech/tools", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -61,8 +61,7 @@ function Tools() {
     }
 
     useEffect(() => {
-        // fetch("https://tt-jsonserver-01.alt-tools.tech/tools")
-        fetch("http://localhost:3001/tools")
+        fetch("https://tt-jsonserver-01.alt-tools.tech/tools")
         .then((response) => response.json())
         .then((data) => {
             setTools(data);
