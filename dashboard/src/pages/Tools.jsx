@@ -35,6 +35,40 @@ function Tools() {
         setModal(false);
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        const newTool = {
+            id: Date.now(),
+            name: e.target.name.value,
+            description: e.target.description.value,
+            category: e.target.category.value,
+            status: e.target.status.value,
+            owner_department: e.target.owner_department.value,
+            previous_month_cost: e.target.previous_month_cost.value,
+            active_users_count: e.target.active_users_count.value,
+            icon_url: e.target.icon_url.value,
+            website_url: e.target.website_url.value,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+        };
+        fetch("http://localhost:3001/tools", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newTool)
+        })
+        .then(response => {
+            if (!response.ok) throw new Error("Erreur lors de l'ajout");
+            return response.json();
+        })
+        .then(data => {
+            setTools(prev => [...prev, data]);
+            handleClose();
+        })
+        .catch(err => console.error(err));
+    }
+
     useEffect(() => {
         // fetch("https://tt-jsonserver-01.alt-tools.tech/tools")
         fetch("http://localhost:3001/tools")
@@ -75,52 +109,82 @@ function Tools() {
                         <div className="d-flex gap-3">
                             {/* Modal */}
                             <button onClick={handleOpen}>Open modal</button>
-                            <Modal isOpen={modal} onRequestClose={handleClose}>
+                            <Modal isOpen={modal} onRequestClose={handleClose} style={{
+                            content: { background: "#0A0A0A", color: "#fff", maxWidth: "600px", margin: "auto", padding: "20px" },
+                            overlay: { backgroundColor: "rgba(0,0,0,0.5)" }
+                            }}>
                                 <button onClick={handleClose}>Close</button>
-                                <form>
-                                    <label htmlFor="id" className="form-label text-white">id</label>
-                                    <input tupe="text" id="id" />
-                                    <label htmlFor="status" className="form-label text-white">name</label>
-                                    <input tupe="text" id="id" />
-                                    <label htmlFor="status" className="form-label text-white">description</label>
-                                    <input tupe="text" id="id" />
-                                    <label htmlFor="status" className="form-label text-white">vendor</label>
-                                    <input tupe="text" id="id" />
-                                    <label htmlFor="status" className="form-label text-white">category</label>
-                                    <select className="form-select form-select-sm bg-dark text-light">
-                                        <option value="">All Departments</option>
+                                <form onSubmit={handleSubmit}>
+                                    <div className="mb-3">
+                                        <label htmlFor="id" className="form-label text-white">ID</label>
+                                        <input type="text" className="form-control" id="id" />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="name" className="form-label text-white">Name</label>
+                                        <input type="text" className="form-control" id="name" />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="description" className="form-label text-white">Description</label>
+                                        <input type="text" className="form-control" id="description" />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="vendor" className="form-label text-white">Vendor</label>
+                                        <input type="text" className="form-control" id="vendor" />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="category" className="form-label text-white">Category</label>
+                                        <select className="form-select form-select-sm bg-dark text-light" id="category">
+                                        <option value="">Select Category</option>
                                         <option value="Engineering">Engineering</option>
                                         <option value="Marketing">Marketing</option>
                                         <option value="Design">Design</option>
-                                    </select>
-                                    <label htmlFor="status" className="form-label text-white">monthly_cost</label>
-                                    <input tupe="text" id="id" />
-                                    <label htmlFor="status" className="form-label text-white">previous_month_cost</label>
-                                    <input tupe="text" id="id" />
-                                    <label htmlFor="status" className="form-label text-white">owner_department</label>
-                                    <select className="form-select form-select-sm bg-dark text-light">
-                                        <option value="">All Departments</option>
+                                        </select>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col mb-3">
+                                        <label htmlFor="monthly_cost" className="form-label text-white">Monthly Cost</label>
+                                        <input type="number" className="form-control" id="monthly_cost" />
+                                        </div>
+                                        <div className="col mb-3">
+                                        <label htmlFor="previous_month_cost" className="form-label text-white">Previous Month Cost</label>
+                                        <input type="number" className="form-control" id="previous_month_cost" />
+                                        </div>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="owner_department" className="form-label text-white">Owner Department</label>
+                                        <select className="form-select form-select-sm bg-dark text-light" id="owner_department">
+                                        <option value="">Select Department</option>
                                         <option value="Engineering">Engineering</option>
                                         <option value="Marketing">Marketing</option>
                                         <option value="Design">Design</option>
-                                    </select>
-                                    <label htmlFor="status" className="form-label text-white">status</label>
-                                    <select className="form-select form-select-sm bg-dark text-light">
-                                        <option value="">All Status</option>
-                                        <option value="Active">Active</option>
+                                        </select>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="status" className="form-label text-white">Status</label>
+                                        <select className="form-select form-select-sm bg-dark text-light" id="status">
+                                        <option value="">Select Status</option>
+                                        <option value="active">Active</option>
                                         <option value="Expiring">Expiring</option>
                                         <option value="Unused">Unused</option>
-                                    </select>
-                                    <label htmlFor="status" className="form-label text-white">website_url</label>
-                                    <input tupe="text" id="id" />
-                                    <label htmlFor="status" className="form-label text-white">active_users_count</label>
-                                    <input tupe="text" id="id" />
-                                    <label htmlFor="status" className="form-label text-white">icon_url</label>
-                                    <input tupe="text" id="id" />
-                                    <label htmlFor="status" className="form-label text-white">created_at</label>
-                                    <input tupe="text" id="id" />
-                                    <label htmlFor="status" className="form-label text-white">updated_at</label>
-                                    <input tupe="text" id="id" />
+                                        </select>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="website_url" className="form-label text-white">Website URL</label>
+                                        <input type="text" className="form-control" id="website_url" />
+                                    </div>
+                                    <div className="row">
+                                        <div className="col mb-3">
+                                        <label htmlFor="active_users_count" className="form-label text-white">Active Users Count</label>
+                                        <input type="number" className="form-control" id="active_users_count" />
+                                        </div>
+                                        <div className="col mb-3">
+                                        <label htmlFor="icon_url" className="form-label text-white">Icon URL</label>
+                                        <input type="text" className="form-control" id="icon_url" />
+                                        </div>
+                                    </div>
+                                    <div className="d-grid gap-2 col-6 mx-auto">
+                                        <button type="submit" className="btn btn-primary">Add Tool</button>
+                                    </div>
                                 </form>
                             </Modal>
                             {/* Status */}
